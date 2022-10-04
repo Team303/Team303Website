@@ -1,27 +1,27 @@
-# Static export example
+# Team 303 Website
 
-This example show how to export to static HTML files your Next.js application fetching data from an API to generate a dynamic list of pages.
+This is a redesign of the Team 303 website made in NextJS. We decided it was time for an upgrade, and we did not want to continue using wordpress to make and host our site. This new version can be exported as a static site and hosted for free on a platform such as Cloudflare.
 
-When trying to run `npm start` it will build and export your pages into the `out` folder and serve them on `localhost:5000`.
+## Developing Locally
 
-## Deploy your own
+Install dependencies with
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-static-export)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-static-export)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-static-export with-static-export-app
+```sh
+yarn install
 ```
 
-```bash
-yarn create next-app --example with-static-export with-static-export-app
+run the dev server with
+
+```sh
+yarn dev
 ```
 
-```bash
-pnpm create next-app --example with-static-export with-static-export-app
+## Exporting The Site
+
+To export the site as static HTML run
+
+```sh
+yarn export
 ```
+
+which will build the entire site and put it into the `out` directory.
