@@ -2,14 +2,16 @@ import { FC } from 'react'
 import styled, { css, FlattenInterpolation, ThemeProps } from 'styled-components'
 import { TextSize, FontWeight } from '../../theme/theme'
 
-type TextColor = 'primary' | 'secondary' | 'white' | 'theme'
+type TextColor = 'primary' | 'secondary' | 'tertiary'
+type FontFamily = 'sans' | 'ethnocentric'
 
 export interface TextProps {
     children?: React.ReactNode
 
     size?: TextSize
     weight?: FontWeight
-    color?: TextColor | 'inherit'
+    color?: TextColor
+    font?: FontFamily
 
     italic?: boolean
     underline?: boolean
@@ -46,7 +48,7 @@ const StyledParagraph = styled.p<{
     ${props => props.styles}
 `
 
-export const createTextStyles = ({ size, weight, italic, underline, center, margin, color }: TextProps) => {
+export const createTextStyles = ({ size, weight, italic, underline, center, margin, color, font }: TextProps) => {
     return css`
         ${italic &&
         css`
@@ -65,21 +67,22 @@ export const createTextStyles = ({ size, weight, italic, underline, center, marg
             margin: 0.5em 0;
         `}
     ${props => css`
-            color: ${color === 'inherit'
-                ? 'inherit'
-                : color === 'white'
-                ? 'white'
-                : color === 'theme'
-                ? props.theme.primary
-                : color === 'secondary'
+            color: ${
+                color === 'secondary'
                 ? props.theme.textSecondary
+                : color === 'tertiary'
+                ? props.theme.textTertiary
                 : props.theme.textPrimary};
         `}
     ${props => css`
             font-size: ${props.theme.textSizes[size || 'base']};
         `}
     ${props => css`
-            font-weight: ${props.theme.fontWeights[weight || 'medium']};
+            font-weight: ${props.theme.fontWeights[weight || 'regular']};
+        `}
+
+        ${props => font === 'ethnocentric' && css`
+            font-family: Ethnocentric;
         `}
     `
 }

@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components'
 import * as gtag from '../lib/googleAnalytics'
 import '../styles/fonts.scss'
 import GlobalStyle from '../styles/globalStyles'
-import { lightTheme } from '../theme/theme'
+import { theme } from '../theme/theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter()
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     return (
         <>
-            <ThemeProvider theme={lightTheme}>
+            <ThemeProvider theme={theme}>
                 <GlobalStyle />
                 <Component {...pageProps} />
             </ThemeProvider>

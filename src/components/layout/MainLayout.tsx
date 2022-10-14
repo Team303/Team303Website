@@ -5,16 +5,17 @@ import NavBar from './NavBar'
 
 export enum ActiveNavPage {
     HOME,
+    ABOUT
 }
 
 const MainLayout: FC<{
     activePage: ActiveNavPage
     children: React.ReactNode
-}> = ({ children }) => {
+}> = ({ activePage, children }) => {
     return (
         <PageContainer>
             <ContentWrapper>
-                <NavBar />
+                <NavBar activePage={activePage} />
                 <Main>{children}</Main>
             </ContentWrapper>
             <Footer />
@@ -28,11 +29,13 @@ export const PageContainer = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-    padding-bottom: 4rem; /* Footer height */
+    padding-bottom: 19rem; /* Footer height */
 `
 
 export const Main = styled.main`
-    padding: 1rem;
+    padding: 2rem 0 6rem 0;
+    margin: 0 auto;
+    max-width: 100rem;
 `
 
 export default MainLayout

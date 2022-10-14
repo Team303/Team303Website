@@ -6,16 +6,16 @@ import styled, { FlattenInterpolation, ThemeProps } from 'styled-components'
 const Link: FC<
     Omit<
         TextProps & {
-            url: string
+            href: string
             newTab?: boolean
         },
         'inline' | 'center'
     >
 > = props => {
-    const { url, newTab, children } = props
+    const { href, newTab, children } = props
 
     return (
-        <NextLink href={url} passHref>
+        <NextLink href={href} passHref>
             <StyledAnchor
                 styles={createTextStyles({
                     ...props,
@@ -34,7 +34,6 @@ const StyledAnchor = styled.a<{
     ${props => props.styles}
     cursor: pointer;
     width: fit-content;
-    color: ${props => props.theme.primary};
 `
 
 export default Link

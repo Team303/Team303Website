@@ -6,35 +6,20 @@ export type HexColor = string
 
 export type TextSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'
 
-export type FontWeight = 'extraLight' | 'book' | 'medium' | 'demi' | 'bold'
-
+export type FontWeight =
+    | 'ultralight'
+    | 'extralight'
+    | 'thin'
+    | 'light'
+    | 'regular'
+    | 'medium'
+    | 'semibold'
+    | 'bold'
+    | 'black'
+    
 export type Color = 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'blurple' | 'patreon'
 
-export interface Theme {
-    textPrimary: HexColor
-    textSecondary: HexColor
-
-    backgroundPrimary: HexColor
-    backgroundSecondary: HexColor
-    backgroundTertiary: HexColor
-    backgroundStroke: HexColor
-
-    primary: HexColor
-    secondary: HexColor
-    accent: HexColor
-
-    white: HexColor
-    offWhite: HexColor
-    lightGray: HexColor
-    silverGray: HexColor
-    softGray: HexColor
-    midGray: HexColor
-    dimGray: HexColor
-    darkGray: HexColor
-    charcoalGray: HexColor
-    darkerGray: HexColor
-    deepGray: HexColor
-
+export type Theme = typeof theme & typeof colors & {
     textSizes: {
         [key in TextSize]: string
     }
@@ -64,27 +49,29 @@ const textSizes = {
 }
 
 const fontWeights = {
-    extraLight: '200',
-    book: '300',
-    medium: '500',
-    demi: '600',
-    bold: '700',
+    ultralight: '100',
+    extralight: '200',
+    thin: '300',
+    light: '400',
+    regular: '500',
+    medium: '600',
+    semibold: '700',
+    bold: '800',
+    black: '900',
 }
 
-export const lightTheme = {
+export const theme = {
     ...colors,
 
     textPrimary: colors.white,
-    textSecondary: colors.midGray,
+    textSecondary: colors.teal100,
+    textTertiary: colors.teal300,
 
-    backgroundPrimary: colors.deepGray,
-    backgroundSecondary: colors.darkerGray,
-    backgroundTertiary: colors.charcoalGray,
-    backgroundStroke: colors.charcoalGray,
-
-    primary: colors.azureBlue,
-    secondary: colors.capriBlue,
-    accent: colors.limeGreen,
+    backgroundPrimary: colors.darkGray,
+    backgroundSecondary: colors.midGray,
+    backgroundStroke: colors.lightGray,
+    
+    navBackground: colors.deepGray,
 
     textSizes,
     fontWeights,
